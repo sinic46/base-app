@@ -1,3 +1,4 @@
+import 'package:base_app/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 
 class DrawerScreen extends StatelessWidget {
@@ -13,7 +14,15 @@ class DrawerScreen extends StatelessWidget {
           ),
           ListTile(
             title: const Text('Settings'),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pop();
+
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const SettingsScreen(),
+                ),
+              );
+            },
           ),
         ],
       ),
