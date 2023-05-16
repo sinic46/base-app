@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class Setting {
   Setting({
     required this.title,
@@ -30,10 +32,27 @@ class StringSetting extends Setting {
     required String description,
     required this.value,
   }) : super(title: title, description: description);
-  
+
   String value;
 
-    StringSetting updateValue(String value) {
+  StringSetting updateValue(String value) {
+    this.value = value;
+    return this;
+  }
+}
+
+class MultiChoiceSetting extends Setting {
+  MultiChoiceSetting({
+    required String title,
+    required String description,
+    required this.value,
+    required this.optionsList
+  }) : super(title: title, description: description);
+
+  String value;
+  List<DropdownMenuItem> optionsList;
+
+  MultiChoiceSetting updateValue(String value) {
     this.value = value;
     return this;
   }

@@ -1,6 +1,7 @@
 import 'package:base_app/models/setting.dart';
 import 'package:base_app/providers/settings_provider.dart';
 import 'package:base_app/widgets/settings/bool_setting.dart';
+import 'package:base_app/widgets/settings/multichoice_setting_tile.dart';
 import 'package:base_app/widgets/settings/string_setting.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -32,13 +33,18 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           switch (setting.runtimeType) {
             case BoolSetting:
               {
-                print('boolean setting found');
+                print('boolean setting found (${setting.title})');
                 return BoolSettingTile(setting: (settingsdata[index]) as BoolSetting);
               }
             case StringSetting:
               {
-                print('string setting found');
+                print('string setting found (${setting.title})');
                 return StringSettingTile(setting: settingsdata[index] as StringSetting);
+              }
+            case MultiChoiceSetting:
+              {
+                print('multi choice setting found (${setting.title})');
+                return MultiChoiceSettingTile(setting: settingsdata[index] as MultiChoiceSetting);
               }
           }
           return const Text('no more');

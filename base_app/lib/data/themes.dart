@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ThemeData {
+class ThemesData {
 
   final ThemeData defaultTheme = ThemeData(
 
