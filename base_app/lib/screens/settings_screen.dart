@@ -14,12 +14,6 @@ class SettingsScreen extends ConsumerStatefulWidget {
 }
 
 class _SettingsScreenState extends ConsumerState<SettingsScreen> {
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   ref.read(settingsProvider);
-  // }
-
   @override
   Widget build(BuildContext context) {
     final settingsdata = ref.watch(settingsProvider);
@@ -50,6 +44,9 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           return const Text('no more');
         },
       ),
+
+      //StringSettingTile(setting: settingsdata[1] as StringSetting),
+      //MultiChoiceSettingTile(setting: settingsdata[2] as MultiChoiceSetting)
     );
   }
 }

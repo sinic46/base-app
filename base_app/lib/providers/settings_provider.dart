@@ -6,7 +6,7 @@ import 'package:base_app/models/setting.dart';
 final List<Setting> settings = [
   BoolSetting(title: 'DarkMode', description: 'turns on dark mode.', value: true),
   StringSetting(title: 'string title', description: 'testing setting', value: 'test value'),
-  MultiChoiceSetting(title: 'country', description: 'which country you from?', value: 'UK',  optionsList: const [
+  MultiChoiceSetting(title: 'country', description: 'which country you from?', value: 'UK', optionsList: const [
     DropdownMenuItem(value: 'UK', child: Text('UK')),
     DropdownMenuItem(value: 'USA', child: Text('USA')),
     DropdownMenuItem(value: 'France', child: Text('France')),
@@ -24,9 +24,11 @@ class SettingsNotifier extends StateNotifier<List<Setting>> {
     //TODO: remove print.
     // print('$settingname value has now changed to ${(newSetting as BoolSetting).value.toString()}');
 
-    final newState = state.where((curSet) => curSet.title != newSetting.title).toList();
+    final newState = [...state];
 
-    state = [...newState, newSetting];
+    newState[newState.indexWhere((curSet) => curSet.title == settingname)] = newSetting;
+
+    state = [...newState];
   }
 }
 
