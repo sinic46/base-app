@@ -12,11 +12,11 @@ class SettingsScreen extends ConsumerStatefulWidget {
 }
 
 class _SettingsScreenState extends ConsumerState<SettingsScreen> {
-  @override
-  void initState() {
-    super.initState();
-    ref.read(settingsProvider);
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   ref.read(settingsProvider);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +32,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             case BoolSetting:
               {
                 return BoolString(setting: (settingsdata[index]) as BoolSetting);
+              }
+            case StringSetting:
+              {
+                return Text(settingsdata[index].title);
               }
           }
           return const Text('no more');
