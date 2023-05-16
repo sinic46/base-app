@@ -11,8 +11,8 @@ class Setting {
 
 class BoolSetting extends Setting {
   BoolSetting({
-    required title,
-    required description,
+    required String title,
+    required String description,
     required this.value,
   }) : super(title: title, description: description);
 
@@ -26,9 +26,15 @@ class BoolSetting extends Setting {
 
 class StringSetting extends Setting {
   StringSetting({
-    required title,
-    required description,
+    required String title,
+    required String description,
     required this.value,
   }) : super(title: title, description: description);
+  
   String value;
+
+    StringSetting updateValue(String value) {
+    this.value = value;
+    return this;
+  }
 }
